@@ -9,8 +9,8 @@ public class Account {
     public void withdraw(double WithdrawValue) {
         if (AccountBalance <= 0) {
             System.out.println("You cannot withdraw from this account you faka");
-        } else {
-            AccountBalance = AccountBalance - WithdrawValue;
+        } else if (AccountBalance - WithdrawValue < 0){
+            System.out.println("You do not have enough to withdraw, brokie");
         }
     }
 }
