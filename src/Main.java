@@ -6,12 +6,8 @@ public class Main {
         // to see how IntelliJ IDEA suggests fixing it.
         System.out.println("Have you ever been a military nurse?");
 
-        Account account = new Account();
+        Account myAccount = new Account(123, "John Doe", 25);
 
-        System.out.println(account.AccountBalance);
-        account.deposit(25.0);
-        System.out.println(account.AccountBalance);
-        account.withdraw(55.0);
-        System.out.println(account.AccountBalance);
+        myAccount.displayAccountInfo();
     }
 }

@@ -1,16 +1,32 @@
 public class Account {
 
-    public double AccountBalance = 0.0;
+    private int accountNumber;
+    private String ownerName;
+    private double balance;
 
-    public void deposit(double DepositValue) {
-        AccountBalance = AccountBalance + DepositValue;
+    public Account(int accountNumber, String ownerName, double balance) {
+        this.accountNumber = accountNumber;
+        this.ownerName = ownerName;
+        this.balance = balance;
     }
 
-    public void withdraw(double WithdrawValue) {
-        if (AccountBalance <= 0) {
-            System.out.println("You cannot withdraw from this account you faka");
-        } else if (AccountBalance - WithdrawValue < 0){
-            System.out.println("You do not have enough to withdraw, brokie");
+    public void displayAccountInfo() {
+        System.out.println("Hi " + ownerName + "! Your account number is " + accountNumber + " and you have $" + balance);
+    }
+
+    public void deposit(double depositValue) {
+        balance = balance + depositValue;
+    }
+
+    public void withdraw(double withdrawValue) {
+        if (withdrawValue == 0) {
+            System.out.println("Withdrawal amount must be greater than 0.");
+        } else if (withdrawValue > balance) {
+            System.out.println("You cannot withdraw more than you currently have");
+        } else if (withdrawValue > 300) {
+            System.out.println("Withdrawals over $300 are not permitted.");
+        } else {
+            balance = balance - withdrawValue;
         }
     }
 }
