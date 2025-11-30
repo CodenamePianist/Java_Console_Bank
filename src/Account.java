@@ -1,8 +1,11 @@
+import java.text.DecimalFormat;
+
 public abstract class Account {
 
     protected int accountNumber;
     protected String ownerName;
     protected double balance;
+    DecimalFormat df = new DecimalFormat("#.00");
 
     public Account(int accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
@@ -13,7 +16,7 @@ public abstract class Account {
 
 
     public void displayAccountInfo() {
-        System.out.println(ownerName + ", Your account number is " + accountNumber + " and you have $" + balance + ".");
+        System.out.println(ownerName + ", Your account number is " + accountNumber + " and you have $" + df.format(balance) + ".");
     }
 
     public void deposit(double depositValue) {

@@ -1,3 +1,4 @@
+import java.text.DecimalFormat;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -13,11 +14,14 @@ public class Main {
         Random random = new Random();
         int randomCheckingNumber = random.nextInt(1000);
         int randomSavingsNumber = random.nextInt(1000);
+        double randomCheckingBalance = random.nextDouble(1000);
+        double randomSavingsBalance = random.nextDouble(1000);
+        DecimalFormat df = new DecimalFormat("#.00");
 
         System.out.println("What is your name?");
         String name = scanner.nextLine();
-        Checking checkingAccount = new Checking(randomCheckingNumber, name, 0);
-        Savings savingsAccount = new Savings(randomSavingsNumber, name, 0);
+        Checking checkingAccount = new Checking(randomCheckingNumber, name, randomCheckingBalance);
+        Savings savingsAccount = new Savings(randomSavingsNumber, name, randomSavingsBalance);
         System.out.println("Welcome to First Bank of Java, " + name + "! How can we help you today?");
         do {
             System.out.println("Checking Account");
@@ -43,13 +47,13 @@ public class Main {
                                 System.out.println("Enter deposit amount: ");
                                 double depositAmount = scanner.nextDouble();
                                 checkingAccount.deposit(depositAmount);
-                                System.out.println("Your checking account currently has $" + checkingAccount.balance + ".");
+                                System.out.println("Your checking account currently has $" + df.format(checkingAccount.balance) + ".");
                                 break;
                             case 2:
                                 System.out.println("Enter withdrawal amount: ");
                                 double withdrawalAmount = scanner.nextDouble();
                                 checkingAccount.withdraw(withdrawalAmount);
-                                System.out.println("Your checking account currently has $" + checkingAccount.balance + ".");
+                                System.out.println("Your checking account currently has $" + df.format(checkingAccount.balance) + ".");
                                 break;
                             case 3:
                                 System.out.println("Your checking account number is " + checkingAccount.accountNumber + ".");
@@ -78,13 +82,13 @@ public class Main {
                                 System.out.println("Enter deposit amount: ");
                                 double depositAmount = scanner.nextDouble();
                                 savingsAccount.deposit(depositAmount);
-                                System.out.println("Your savings account currently has $" + savingsAccount.balance + ".");
+                                System.out.println("Your savings account currently has $" + df.format(savingsAccount.balance) + ".");
                                 break;
                             case 2:
                                 System.out.println("Enter withdrawal amount: ");
                                 double withdrawalAmount = scanner.nextDouble();
                                 savingsAccount.withdraw(withdrawalAmount);
-                                System.out.println("Your savings account currently has $" + savingsAccount.balance + ".");
+                                System.out.println("Your savings account currently has $" + df.format(savingsAccount.balance) + ".");
                                 break;
                             case 3:
                                 System.out.println("Your savings account number is " + savingsAccount.accountNumber + ".");
