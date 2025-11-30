@@ -1,8 +1,8 @@
-public class Account {
+public abstract class Account {
 
-    private int accountNumber;
-    private String ownerName;
-    private double balance;
+    protected int accountNumber;
+    protected String ownerName;
+    protected double balance;
 
     public Account(int accountNumber, String ownerName, double balance) {
         this.accountNumber = accountNumber;
@@ -11,22 +11,15 @@ public class Account {
     }
 
     public void displayAccountInfo() {
-        System.out.println("Hi " + ownerName + "! Your account number is " + accountNumber + " and you have $" + balance);
+        System.out.println(ownerName + ", Your account number is " + accountNumber + " and you have $" + balance + ".");
     }
 
     public void deposit(double depositValue) {
-        balance = balance + depositValue;
-    }
-
-    public void withdraw(double withdrawValue) {
-        if (withdrawValue == 0) {
-            System.out.println("Withdrawal amount must be greater than 0.");
-        } else if (withdrawValue > balance) {
-            System.out.println("You cannot withdraw more than you currently have");
-        } else if (withdrawValue > 300) {
-            System.out.println("Withdrawals over $300 are not permitted.");
-        } else {
-            balance = balance - withdrawValue;
+        if (depositValue > 0){
+            balance = balance + depositValue;
         }
     }
+
+    public abstract void withdraw(double withdrawValue);
+
 }
