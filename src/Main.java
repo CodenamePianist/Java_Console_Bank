@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
@@ -9,11 +10,14 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int choice;
         int subChoice;
+        Random random = new Random();
+        int randomCheckingNumber = random.nextInt(1000);
+        int randomSavingsNumber = random.nextInt(1000);
 
         System.out.println("What is your name?");
         String name = scanner.nextLine();
-        Checking checkingAccount = new Checking(0, name, 0);
-        Savings savingsAccount = new Savings(0, name, 0);
+        Checking checkingAccount = new Checking(randomCheckingNumber, name, 0);
+        Savings savingsAccount = new Savings(randomSavingsNumber, name, 0);
         System.out.println("Welcome to First Bank of Java, " + name + "! How can we help you today?");
         do {
             System.out.println("Checking Account");

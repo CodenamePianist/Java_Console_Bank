@@ -10,6 +10,8 @@ public abstract class Account {
         this.balance = balance;
     }
 
+
+
     public void displayAccountInfo() {
         System.out.println(ownerName + ", Your account number is " + accountNumber + " and you have $" + balance + ".");
     }
